@@ -5,14 +5,13 @@
     <application
         android:label="IntentDemo"
         android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        <meta-data android:name="ComponentName_pkg" android:value="com.android.settings"/>
+        <meta-data android:name="ComponentName_class" android:value="com.android.settings.Settings"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="ComponentName_pkg" android:value="com.android.settings"/>
-        <meta-data android:name="ComponentName_class" android:value="com.android.settings.Settings"/>
-
     </application>
 </manifest>
