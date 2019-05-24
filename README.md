@@ -1,8 +1,6 @@
 # IntentDemo
 
-startActivity via setComponent
-
-//intent.setComponen(ComponentName_pkg,ComponentName_class)
+startActivity via intent.setComponent(ComponentName_pkg,ComponentName_class)
 
 
 All required parameters can be modified via AndroidManifest.xm,You can simply modify it to get what you want.
