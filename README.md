@@ -3,7 +3,7 @@
 startActivity via intent.setComponent(ComponentName_pkg,ComponentName_class)
 
 
-All required parameters can be modified via AndroidManifest.xm,You can simply modify it to get what you want.
+All required parameters can be modified via AndroidManifest.xml,You can simply modify it to get what you want.
 
 Example:
 
