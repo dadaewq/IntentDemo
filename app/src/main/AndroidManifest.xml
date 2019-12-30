@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.modosa.intent">
 
     <application
         android:label="IntentDemo"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        <meta-data android:name="ComponentName_pkg" android:value="com.android.settings"/>
-        <meta-data android:name="ComponentName_class" android:value="com.android.settings.Settings"/>
-        <activity android:name=".MainActivity">
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="ComponentName_pkg"
+            android:value="com.android.settings" />
+        <meta-data
+            android:name="ComponentName_class"
+            android:value="com.android.settings.Settings" />
+
+        <activity
+            android:name=".MainActivity"
+            android:excludeFromRecents="true"
+            android:noHistory="true">
+            <!--android:launchMode="singleTask"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
