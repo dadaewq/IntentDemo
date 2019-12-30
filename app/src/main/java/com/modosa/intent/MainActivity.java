@@ -37,25 +37,41 @@ public class MainActivity extends Activity {
         Objects.requireNonNull(appInfo);
         String Pkg = appInfo.metaData.getString("ComponentName_pkg");
         String Cls = appInfo.metaData.getString("ComponentName_class");
-        if (Pkg == null || Cls == null || TextUtils.isEmpty(Pkg.trim()) || TextUtils.isEmpty(Cls.trim())) {
-            Toast.makeText(this, "Empty !", Toast.LENGTH_SHORT).show();
+        if (Pkg == null || TextUtils.isEmpty(Pkg)) {
+            Toast.makeText(this, "Pkg Empty !", Toast.LENGTH_SHORT).show();
         } else {
+            if (Cls == null || TextUtils.isEmpty(Cls.trim())) {
+                Intent intent = getPackageManager().getLaunchIntentForPackage(Pkg);
+                if (intent == null) {
+                    Toast.makeText(this, "Can't run "+Pkg+" !", Toast.LENGTH_SHORT).show();
+                } else {
+                    try {
+                        startActivity(intent);
+                        Toast.makeText(this, intent + "", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+//            e.printStackTrace();
+                        Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                finish();
+            } else {
 
 //            Intent intent = new Intent("android.intent.action.MAIN");
 //            intent.addCategory("android.intent.category.LAUNCHER");
 
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setComponent(new ComponentName(Pkg, Cls));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            try {
-                startActivity(intent);
-                Toast.makeText(this, intent + "", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setComponent(new ComponentName(Pkg, Cls));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                try {
+                    startActivity(intent);
+                    Toast.makeText(this, intent + "", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
 //            e.printStackTrace();
-                Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
+                }
+                finish();
             }
-            finish();
-        }
 
+        }
     }
 }
