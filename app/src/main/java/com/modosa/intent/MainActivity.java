@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
             if (Cls == null || TextUtils.isEmpty(Cls.trim())) {
                 Intent intent = getPackageManager().getLaunchIntentForPackage(Pkg);
                 if (intent == null) {
-                    Toast.makeText(this, "Can't run "+Pkg+" !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Can't run " + Pkg + " !", Toast.LENGTH_SHORT).show();
                 } else {
                     try {
                         startActivity(intent);
@@ -53,7 +53,6 @@ public class MainActivity extends Activity {
                         Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
                     }
                 }
-                finish();
             } else {
 
 //            Intent intent = new Intent("android.intent.action.MAIN");
@@ -69,9 +68,9 @@ public class MainActivity extends Activity {
 //            e.printStackTrace();
                     Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
                 }
-                finish();
             }
 
         }
+        finish();
     }
 }
