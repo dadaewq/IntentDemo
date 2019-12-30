@@ -45,10 +45,11 @@ public class MainActivity extends Activity {
 //            intent.addCategory("android.intent.category.LAUNCHER");
 
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setComponent(new ComponentName(Objects.requireNonNull(Pkg), Objects.requireNonNull(Cls)));
+            intent.setComponent(new ComponentName(Pkg, Cls));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             try {
                 startActivity(intent);
+                Toast.makeText(this, intent + "", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
 //            e.printStackTrace();
                 Toast.makeText(this, e + "", Toast.LENGTH_SHORT).show();
